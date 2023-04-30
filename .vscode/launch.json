@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [      
+      {
+        "type": "java",
+        "name": "DesktopLauncher",
+        "request": "launch",
+        "mainClass": "edu.sou.cs452.drop.DesktopLauncher",
+        "projectName": "Drop-desktop",
+        "args": ["test.bvr"],
+        "preLaunchTask": "build"
+      }
+    ]
+  }
+  

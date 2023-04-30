@@ -1,0 +1,25 @@
+If the loop goes around more than 100 times I would like to apply a widening
+operator that sets the x and y intervals to TOP.
+
+
+    @Override
+    public Void visitIterStmt(Stmt.Iter stmt) {
+        Interval initialXInterval;
+        Interval initialYInterval;
+
+        // Iterate until a fixpoint is reached (xInterval and yInterval do not change).
+        do {
+            initialXInterval = xInterval;
+            initialYInterval = yInterval;
+
+            // Execute the statements in the loop.
+            for (Stmt s : stmt.body) {
+                execute(s);
+            }
+
+            // Check if the intervals have changed.
+        } while (!xInterval.equals(initialXInterval) || !yInterval.equals(initialYInterval));
+
+        return null;
+    }
+
